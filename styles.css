@@ -1,0 +1,263 @@
+/* Diamond Slotbox - Main Styles */
+
+:root {
+    --primary-color: #00d4ff;
+    --secondary-color: #ff00ff;
+    --gold-color: #ffd700;
+    --bg-color: #0a0a1a;
+    --card-bg: #1a1a2e;
+    --text-color: #ffffff;
+    --reel-bg: #16213e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 50%, #0a0a1a 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3),
+                0 0 60px rgba(255, 0, 255, 0.2);
+    border: 2px solid var(--primary-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--gold-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: var(--gold-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.game-area {
+    margin-bottom: 30px;
+}
+
+.slot-machine {
+    background: var(--reel-bg);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.reels {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.reel {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #1e3a5f, #0d1b2a);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.reel.spinning {
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-20px); }
+    100% { transform: translateY(20px); }
+}
+
+.payline {
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-color), var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.spin-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
+                0 0 40px rgba(255, 0, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.spin-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.7),
+                0 0 60px rgba(255, 0, 255, 0.5);
+}
+
+.spin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.credits, .bet {
+    font-size: 1.1em;
+    color: var(--gold-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.invite-section {
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color);
+}
+
+.invite-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.invite-btn {
+    background: linear-gradient(135deg, var(--gold-color), #ffaa00);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #0a0a1a;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.invite-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.win-section {
+    margin-bottom: 20px;
+}
+
+.win-section h2 {
+    color: var(--gold-color);
+    margin-bottom: 15px;
+}
+
+.win-message {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--gold-color);
+    animation: pulse 0.5s ease;
+}
+
+.win-message.hidden {
+    display: none;
+}
+
+.win-message p {
+    font-size: 1.5em;
+    color: var(--gold-color);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--gold-color);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .reel {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+
+    .spin-btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+}
+
+/* Animations */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
+                    0 0 40px rgba(255, 0, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.5),
+                    0 0 60px rgba(255, 0, 255, 0.4);
+    }
+}
+
+.container {
+    animation: glow 3s ease-in-out infinite;
+}
