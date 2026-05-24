@@ -2,54 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Diamond Slotbox 🎰</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💎 Diamond Slotbox 💎</h1>
-            <p class="subtitle">Spin to Win!</p>
-        </header>
-
-        <div class="game-area">
-            <div class="slot-machine">
-                <div class="reels">
-                    <div class="reel" id="reel1">💎</div>
-                    <div class="reel" id="reel2">💎</div>
-                    <div class="reel" id="reel3">💎</div>
-                </div>
-                <div class="payline"></div>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <div class="topbar">
+            <div class="srow">
+                <div class="chip">💎 DIAMOND</div>
+                <div class="chip">🎰 SLOTS</div>
+                <div class="chip">💰 WIN</div>
             </div>
-
-            <div class="controls">
-                <button id="spinBtn" class="spin-btn">🎰 SPIN</button>
-                <div class="credits">
-                    <span>Credits: <span id="credits">1000</span></span>
-                </div>
-                <div class="bet">
-                    <span>Bet: <span id="bet">10</span></span>
-                </div>
+            <div class="tbtns">
+                <button class="ibtn">⚙️</button>
+                <button class="ibtn">🔊</button>
+                <div class="pav">👤</div>
             </div>
         </div>
 
-        <div class="invite-section">
-            <h2>👥 Invite Friends</h2>
-            <p>Share your link and compete with friends!</p>
-            <button id="inviteBtn" class="invite-btn">🔗 Invite Friends</button>
+        <!-- Main Content -->
+        <div class="mcontent">
+            <!-- Tap Zone -->
+            <div class="tapzone" id="tapZone">
+                <div class="taphint">TAP TO SPIN</div>
+            </div>
+
+            <!-- Side Tags -->
+            <div class="sidetags">
+                <div class="stag">JACKPOT</div>
+                <div class="stag">FREE SPINS</div>
+                <div class="stag">VIP</div>
+            </div>
+
+            <!-- Flying Particles Container -->
+            <div class="particles-container" id="particlesContainer"></div>
+
+            <!-- Ad Placeholder -->
+            <div class="adfloat" id="adFloat">📢</div>
         </div>
 
-        <div class="win-section">
-            <h2>🎉 Win Section</h2>
-            <div id="winMessage" class="win-message hidden">
-                <p id="winText">Congratulations!</p>
+        <!-- Trophy Section -->
+        <div class="trophy-section" id="trophySection">
+            <div class="trophy">
+                <div class="trophy-icon">🏆</div>
+                <div class="djtxt">BIG WIN!</div>
+                <div class="djsub">+5000 Credits</div>
             </div>
         </div>
 
-        <footer>
-            <p>Made with 💎 and 🎰 | <a href="https://github.com/austriataxationofficeato-lang/Diamond-Slotbox" target="_blank">GitHub</a></p>
-        </footer>
+        <!-- Jackpot Overlay -->
+        <div class="jkovl" id="jkovl">
+            <div class="jkbig">🎉 JACKPOT! 🎉</div>
+            <div class="confetti" id="confetti"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
