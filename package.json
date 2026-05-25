@@ -1,27 +1,17 @@
 {
-  "name": "diamond-slotbox",
-  "version": "1.0.0",
-  "description": "A mini-app game featuring a Diamond Slotbox with virtual slots, inviting friends, and exciting gameplay.",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "echo \"Deploying to Netlify/Vercel...\""
-  },
-  "keywords": [
-    "game",
-    "slots",
-    "telegram",
-    "mini-app",
-    "casino"
-  ],
-  "author": "Uduak",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/austriataxationofficeato-lang/Diamond-Slotbox.git"
-  },
-  "bugs": {
-    "url": "https://github.com/austriataxationofficeato-lang/Diamond-Slotbox/issues"
-  },
-  "homepage": "https://github.com/austriataxationofficeato-lang/Diamond-Slotbox#readme"
+    "name": "diamond-slotbox",
+    "version": "1.0.0",
+    "description": "Diamond Slotbox - Tegmentor Web App Game",
+    "main": "index.html",
+    "scripts": {
+        "dev": "nxx http-server",
+        "build": "echo 'No build required''
+    },
+    "vieworks": [
+        "tegmentor",
+        "web-app",
+        "game"
+    ],
+    "author": "",
+    "license": "MIT"
 }
