@@ -1,209 +1,66 @@
-// Diamond Slotbox - Game Logic
+UENGRVQwTlVXVkJGSUdoMGJXdytDanhvZEcxc0lHeGhibWM5SW1WdUlqNEtQ
+R2hsWVdRK0NpQWdJQ0E4YldWMFlTQmphR0Z5YzJWMFBTSlZWRVl0T0NJK0Np
+QWdJQ0E4YldWMFlTQnVZVzFsUFNKMmFXVjNjRzl5ZENJZ1kyOXVkR1Z1ZEQw
+aWQybGtkR2c5WkdWMmFXTmxMWGRwWkhSb0xDQnBibWwwYVdGc0xYTmpZV3hs
+UFRFdU1Dd2diV0Y0YVcxMWJTMXpZMkZzWlQweExqQXNJSFZ6WlhJdGMyTmhi
+R0ZpYkdVOWJtOGlQZ29nSUNBZ1BIUnBkR3hsUGtScFlXMXZibVFnVTJ4dmRH
+SnZlQ0R3bjQ2d1BDOTBhWFJzWlQ0S0lDQWdJRHhzYVc1cklISmxiRDBpYzNS
+NWJHVnphR1ZsZENJZ2FISmxaajBpYzNSNWJHVnpMbU56Y3lJK0NpQWdJQ0E4
+YkdsdWF5Qm9jbVZtUFNKb2RIUndjem92TDJadmJuUnpMbWR2YjJkc1pXRndh
+WE11WTI5dEwyTnpjekkvClptRnRhV3g1UFU5eVltbDBjbTl1T25kbmFIUkFO
+REF3T3pjd01EczVNREFtWkdsemNHeGhlVDF6ZDJGdwpJaUJ5Wld3OUluTjBl
+V3hsYzJobFpYUWlQZ284TDJobFlXUStDanhpYjJSNVBnb2dJQ0FnUEdScGRp
+QmoKYkdGemN6MGlZWEJ3TFdOdmJuUmhhVzVsY2lJK0NpQWdJQ0FnSUNBZ1BD
+RXRMU0JVYjNBZ1FtRnlJQzB0UGdvZ0lDQWdJQ0FnSUNBZ0lEeGthWFlnWTJ4
+aGMzTTlJblJ2Y0dKaGNpSStDaUFnSUNBZ0lDQWdJQ0FnSUNBZ1BHUnBkaUJq
+YkdGemN6MGkKWTJocGNDSSs4SitTamlCRVNVRk5UMDVFUEM5a2FYWStDaUFn
+SUNBZ0lDQWdJQ0FnSUNBZ0lDQThaR2wyCUlHTnNZWE56UFNKamFHbHdJajd3
+bjQ2d0lGTk1UMVJUUEM5a2FYWStDaUFnSUNBZ0lDQWdJQ0FnSUNBZwpJQ0E4
+WkdsMklHTnNZWE56UFNKamFHbHdJajd3bjVLd0lGZEpUand2WkdsMlBnb2dJ
+Q0FnSUNBZ0lDQWcKQ0E4TDJScGRqNEtJQ0FnSUNBZ0lDQWdJQ0FnUEdScGRp
+QmpiR0Z6Y3owaWRHSjBibk1pUGdvZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0FnUEdK
+MWRIUnZiaUJqYkdGemN6MGlhV0owYmlJKzRwcVo3N2lQUEM5aWRYUjBiMjQr
+Q2lBZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0E4WW5WMGRHOXVJR05zWVhOelBTSnBZ
+blJ1SWo3d241U0tQQzlpZFhSMGIyNCtDaUFnSUNBZ0lDQWdJQ0FnSUNBZ0lD
+QThaR2wySUdOc1lYTnpQU0p3WVhZaVB2Q2ZrYVE4TDJScGRqNEtJQ0FnSUNB
+Z0lDQWdJQ0FnSUNBZ1BDOWthWFkrQ2lBZ0lDQWdJQ0FnUEM5a2FYWStDZ29n
+SUNBZ0lDQWdJRHdoTFMwZ1RXRnBiaUJEYjI1MFpXNTBJQzB0UGdvZ0lDQWdJ
+Q0FnSUR4a2FYWWdZMnhoYzNNOUltMWpiMjUwWlc1MElqNEtJQ0FnSUNBZ0lD
+QWdJQ0FnUENFdExTQlVZWEFnV205dVpTQXRMVDRLSUNBZ0lDQWdJQ0FnSUNB
+Z1BHUnBkaUJqYkdGemN6MGlkR0Z3ZW05dVpTSWdhV1E5SW5SaGNGcHZibVVp
+UGdvZ0lDQWdJQ0FnSUNBZ0lDQWdJQ0FnUEdScGRpQmpiR0Z6Y3owaWRHRndh
+R2x1ZENJK1ZFRlFJRlJQSUZOUVNVNDhMMlJwZGo0S0lDQWdJQ0FnSUNBZ0lD
+QWdQQzlrYVhZK0Nnb2dJQ0FnSUNBZ0lDQWdJQ0E4SVMwdElGTnBaR1VnVkdG
+bmN5QXRMVDRLSUNBZ0lDQWdJQ0FnSUNBZ1BHUnBkaUJqYkdGemN6MGljMmxr
+WlhSaFozTWlQZ29nSUNBZ0lDQWdJQ0FnSUNBZ0lDQWdQR1JwZGlCamJHRnpj
+ejBpYzNSaFp5SStTa0ZEClMxQlBWRHd2WkdsMlBnb2dJQ0FnSUNBZ0lDQWdJ
+Q0FnSUNBZ1BHUnBkaUJqYkdGemN6MGljM1JoWnlJKwpSbEpGUlNCVFVFbE9V
+end2WkdsMlBnb2dJQ0FnSUNBZ0lDQWdJQ0FnSUNBZ1BHUnBkaUJqYkdGemN6
+MGkKYzNSaFp5SStWa2xRUEM5a2FYWStDaUFnSUNBZ0lDQWdJQ0FnSUR3dlpH
+bDJQZ29L
 
-// Game State
-const gameState = {
-    credits: 1000,
-    bet: 10,
-    isSpinning: false,
-    symbols: ['💎', '🎰', '⭐', '🍀', '7️⃣', '🍒'],
-    winningCombinations: [
-        { symbols: ['💎', '💎', '💎'], multiplier: 50 },
-        { symbols: ['7️⃣', '7️⃣', '7️⃣'], multiplier: 30 },
-        { symbols: ['⭐', '⭐', '⭐'], multiplier: 20 },
-        { symbols: ['🎰', '🎰', '🎰'], multiplier: 15 },
-        { symbols: ['🍀', '🍀', '🍀'], multiplier: 10 },
-        { symbols: ['🍒', '🍒', '🍒'], multiplier: 5 },
-        { symbols: ['💎', '💎', '🎰'], multiplier: 3 },
-        { symbols: ['7️⃣', '7️⃣', '⭐'], multiplier: 3 },
-        { symbols: ['⭐', '⭐', '🍀'], multiplier: 3 },
-    ]
-};
-
-// DOM Elements
-const reel1 = document.getElementById('reel1');
-const reel2 = document.getElementById('reel2');
-const reel3 = document.getElementById('reel3');
-const spinBtn = document.getElementById('spinBtn');
-const creditsDisplay = document.getElementById('credits');
-const betDisplay = document.getElementById('bet');
-const inviteBtn = document.getElementById('inviteBtn');
-const winMessage = document.getElementById('winMessage');
-const winText = document.getElementById('winText');
-
-// Initialize Game
-function initGame() {
-    updateDisplay();
-    loadGameState();
-    setupEventListeners();
-}
-
-// Update Display
-function updateDisplay() {
-    creditsDisplay.textContent = gameState.credits;
-    betDisplay.textContent = gameState.bet;
-    spinBtn.disabled = gameState.isSpinning || gameState.credits < gameState.bet;
-}
-
-// Load Game State from LocalStorage
-function loadGameState() {
-    const saved = localStorage.getItem('diamondSlotboxState');
-    if (saved) {
-        const parsed = JSON.parse(saved);
-        gameState.credits = parsed.credits || 1000;
-        gameState.bet = parsed.bet || 10;
-    }
-}
-
-// Save Game State to LocalStorage
-function saveGameState() {
-    localStorage.setItem('diamondSlotboxState', JSON.stringify({
-        credits: gameState.credits,
-        bet: gameState.bet
-    }));
-}
-
-// Setup Event Listeners
-function setupEventListeners() {
-    spinBtn.addEventListener('click', spin);
-    inviteBtn.addEventListener('click', inviteFriends);
-}
-
-// Spin Reels
-async function spin() {
-    if (gameState.isSpinning || gameState.credits < gameState.bet) {
-        return;
-    }
-
-    // Deduct bet
-    gameState.credits -= gameState.bet;
-    saveGameState();
-    updateDisplay();
-
-    // Set spinning state
-    gameState.isSpinning = true;
-    spinBtn.disabled = true;
-    winMessage.classList.add('hidden');
-
-    // Spin each reel with delay
-    await spinReel(reel1, 1000);
-    await spinReel(reel2, 1500);
-    await spinReel(reel3, 2000);
-
-    // Check for win
-    checkWin();
-
-    // Reset spinning state
-    gameState.isSpinning = false;
-    spinBtn.disabled = false;
-}
-
-// Spin Single Reel
-function spinReel(reel, delay) {
-    return new Promise((resolve) => {
-        reel.classList.add('spinning');
-
-        setTimeout(() => {
-            reel.classList.remove('spinning');
-            const randomSymbol = gameState.symbols[Math.floor(Math.random() * gameState.symbols.length)];
-            reel.textContent = randomSymbol;
-            resolve();
-        }, delay);
-    });
-}
-
-// Check for Win
-function checkWin() {
-    const result = [reel1.textContent, reel2.textContent, reel3.textContent];
-    let winAmount = 0;
-    let winMessageText = '';
-
-    // Check for exact matches
-    for (const combo of gameState.winningCombinations) {
-        if (result[0] === combo.symbols[0] &&
-            result[1] === combo.symbols[1] &&
-            result[2] === combo.symbols[2]) {
-            winAmount = gameState.bet * combo.multiplier;
-            winMessageText = `🎉 You won ${winAmount} credits!`;
-            break;
-        }
-    }
-
-    // Check for partial matches (2 symbols)
-    if (winAmount === 0) {
-        const symbolCounts = {};
-        result.forEach(symbol => {
-            symbolCounts[symbol] = (symbolCounts[symbol] || 0) + 1;
-        });
-
-        for (const [symbol, count] of Object.entries(symbolCounts)) {
-            if (count >= 2) {
-                winAmount = Math.floor(gameState.bet * 1.5);
-                winMessageText = `✨ Nice! You got ${count} ${symbol}s!`;
-                break;
-            }
-        }
-    }
-
-    // Update credits if won
-    if (winAmount > 0) {
-        gameState.credits += winAmount;
-        saveGameState();
-        updateDisplay();
-        winText.textContent = winMessageText;
-        winMessage.classList.remove('hidden');
-    }
-
-    // Check for game over
-    if (gameState.credits < gameState.bet) {
-        setTimeout(() => {
-            winText.textContent = '😢 Out of credits! Refresh to restart.';
-            winMessage.classList.remove('hidden');
-        }, 1000);
-    }
-}
-
-// Invite Friends
-function inviteFriends() {
-    const inviteLink = 'https://t.me/DiamondSlotboxBot';
-    const message = `💎 Come play Diamond Slotbox with me! Spin to win big! 🎰`;
-
-    // Copy to clipboard
-    navigator.clipboard.writeText(`${message} ${inviteLink}`).then(() => {
-        alert('Invite link copied! Share it with your friends!');
-    }).catch(err => {
-        console.error('Failed to copy:', err);
-    });
-
-    // Send to Telegram
-    if (window.Telegram && window.Telegram.WebApp) {
-        window.Telegram.WebApp.sendData(JSON.stringify({
-            action: 'invite',
-            message: message,
-            link: inviteLink
-        }));
-    }
-}
-
-// Initialize on load
-initGame();
-
-// Telegram Mini App Integration
-if (window.Telegram && window.Telegram.WebApp) {
-    window.Telegram.WebApp.ready();
-    window.Telegram.WebApp.expand();
-
-    // Handle data from Telegram
-    window.Telegram.WebApp.onDataReceived = (data) => {
-        try {
-            const parsed = JSON.parse(data);
-            if (parsed.action === 'invite') {
-                alert(`Invited ${parsed.invitedBy} to play!`);
-            }
-        } catch (e) {
-            console.error('Error parsing data:', e);
-        }
-    };
-}
-
-// Export for debugging
-window.gameState = gameState;
+SUNBZ0lDQWdJQ0FnCklDQWdQQ0V0TFNCR2JIbHBibWNnVUdGeWRHbGpiR1Z6
+SUVOdmJuUmhhVzVsY2lBdExUNEtJQ0FnSUNBZwpJQ0FnSUNBZ1BHUnBkaUJq
+YkdGemN6MGljR0Z5ZEdsamJHVnpMV052Ym5SaGFXNWxjaUlnYVdROUluQmgK
+Y25ScFkyeGxjME52Ym5SaGFXNWxjaUkrUEM5a2FYWStDZ29nSUNBZ0lDQWdJ
+Q0FnSUNBOElTMHRJRUZrCklGQnNZV05sYUc5c1pHVnlJQzB0UGdvZ0lDQWdJ
+Q0FnSUNBZ0lDQThaR2wySUdOc1lYTnpQU0poWkdacwpiMkYwSWlCcFpEMGlZ
+V1JHYkc5aGRDSSs4SitUb2p3dlpHbDJQZ29nSUNBZ0lDQWdJRHd2WkdsMlBn
+b0sKSUNBZ0lDQWdJQ0E4SVMwdElGUnliM0JvZVNCVFpXTjBhVzl1SUMwdFBn
+b2dJQ0FnSUNBZ0lEeGthWFlnClkyeGhjM005SW5SeWIzQm9lUzF6WldOMGFX
+OXVJaUJwWkQwaWRISnZjR2g1VTJWamRHbHZiaUkrQ2lBZwpJQ0FnSUNBZ0lD
+QWdJRHhrYVhZZ1kyeGhjM005SW5SeWIzQm9lU0krQ2lBZ0lDQWdJQ0FnSUNB
+Z0lDQWcKSUNBOFpHbDJJR05zWVhOelBTSjBjbTl3YUhrdGFXTnZiaUkrOEor
+UGhqd3ZaR2wyUGdvZ0lDQWdJQ0FnCklDQWdJQ0FnSUNBZ1BHUnBkaUJqYkdG
+emN6MGlaR3AwZUhRaVBrSkpSeUJYU1U0aFBDOWthWFkrQ2lBZwpJQ0FnSUNB
+Z0lDQWdJQ0FnSUNBOFpHbDJJR05zWVhOelBTSmthbk4xWWlJK0t6VXdNREFn
+UTNKbFpHbDAKY3p3dlpHbDJQZ29nSUNBZ0lDQWdJQ0FnQ0E4TDJScGRqNEtJ
+Q0FnSUNBZ0lDQThMMlJwZGo0S0NpQWcKSUNBZ0lDQWdQQ0V0TFNCS1lXTnJj
+RzkwSUU5MlpYSnNZWGtnTFMwK0NpQWdJQ0FnSUNBZ1BHUnBkaUJqCmJHRnpj
+ejBpYW10dmRtd2lJR2xrUFNKcWEyOTJiQ0krQ2lBZ0lDQWdJQ0FnSUNBZ0lE
+eGthWFlnWTJ4aApjM005SW1wclltbG5Jajd3bjQ2SklFcEJRMHRRVDFRaElQ
+Q2Zqb2s4TDJScGRqNEtJQ0FnSUNBZ0lDQWcKSUNBZ1BHUnBkaUJqYkdGemN6
+MGlZMjl1Wm1WMGRHa2lJR2xrUFNKamIyNW1aWFIwYVNJK1BDOWthWFkrCkNp
+QWdJQ0FnSUNBZ1BDOWthWFkrQ2lBZ0lDQThMMlJwZGo0S0NpQWdJQ0E4YzJO
+eWFYQjBJSE55WXowaQpjMk55YVhCMExtcHpJajQ4TDNOamNtbHdkRDRLUEM5
+aWIyUjVQZ284TDJoMGJXdytDZz09
