@@ -1,17 +1,17 @@
 {
-    "name": "diamond-slotbox",
-    "version": "1.0.0",
-    "description": "Diamond Slotbox - Tegmentor Web App Game",
-    "main": "index.html",
-    "scripts": {
-        "dev": "nxx http-server",
-        "build": "echo 'No build required''
-    },
-    "vieworks": [
-        "tegmentor",
-        "web-app",
-        "game"
-    ],
-    "author": "",
-    "license": "MIT"
+  "name": "diamond-slotbox",
+  "version": "1.0.0",
+  "description": "Diamond Slotbox - Telegram Web App Game",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server",
+    "build": "echo 'No build required'"
+  },
+  "keywords": [
+    "telegram",
+    "web-app",
+    "game"
+  ],
+  "author": "",
+  "license": "MIT"
 }
