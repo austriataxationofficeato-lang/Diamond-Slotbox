@@ -1,6 +1,5 @@
 {
-    "buildCard": "",
-    "outputDiagram": "",
-    "framework": "html",
-    "start_url": "."
+  "outputDiagram": "",
+  "framework": "html",
+  "start_url": "."
 }
