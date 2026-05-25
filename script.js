@@ -1,4 +1,3 @@
-
 'use strict';
 // ═══════════════════════════════════════════════════════
 //  STATE
@@ -127,6 +126,7 @@ function getMid(r) {
 // Render 3 static cells centred on stopIdx (top=idx-1, mid=idx, bot=idx+1)
 function renderStatic(r, idx) {
   const track = document.getElementById('track' + r);
+  if(!track) return;
   track.innerHTML = '';
   const strip = strips[r];
   const len   = strip.length;
@@ -153,6 +153,11 @@ function makeCell(sym) {
 // Renders 4 cells during animation for smooth sub-cell interpolation
 function animateReel(r, durationMs, newStop, onDone) {
   const track  = document.getElementById('track' + r);
+  if(!track) {
+    console.error('Track not found for reel', r);
+    onDone();
+    return;
+  }
   const strip  = strips[r];
   const len    = strip.length;
   const t0     = performance.now();
@@ -222,14 +227,17 @@ function doSpin(isAuto) {
   updateHUD();
 
   const btn = document.getElementById('spinBtn');
-  btn.classList.add('spinning');
-  btn.textContent = '⏹ STOP';
+  if(btn) btn.classList.add('spinning');
+  if(btn) btn.textContent = '⏹ STOP';
 
   // Reset UI
-  document.getElementById('wline').classList.remove('on');
+  const wl = document.getElementById('wline');
+  if(wl) wl.classList.remove('on');
   const wt = document.getElementById('winText');
-  wt.style.display = 'none';
-  wt.className = 'wt';
+  if(wt) {
+    wt.style.display = 'none';
+    wt.className = 'wt';
+  }
 
   // Pre-compute FRESH random stops for all 3 reels BEFORE animating
   const newStops = [
@@ -256,8 +264,10 @@ function doSpin(isAuto) {
 function onAllStopped(isAuto) {
   isSpinning = false;
   const btn = document.getElementById('spinBtn');
-  btn.classList.remove('spinning');
-  btn.textContent = '▶ SPIN';
+  if(btn) {
+    btn.classList.remove('spinning');
+    btn.textContent = '▶ SPIN';
+  }
 
   // Record middles as "previous" for next spin
   const results = [getMid(0), getMid(1), getMid(2)];
@@ -283,7 +293,10 @@ function onAllStopped(isAuto) {
 // ═══════════════════════════════════════════════════════
 function evaluate(res) {
   const wt = document.getElementById('winText');
+  if(!wt) return;
   const wl = document.getElementById('wline');
+  if(wl) wl.classList.add('on');
+
   wt.style.display = 'block';
 
   const allSame = res[0] === res[1] && res[1] === res[2];
@@ -291,7 +304,7 @@ function evaluate(res) {
 
   // ── JACKPOT: all 3 identical ──
   if(allSame){
-    wl.classList.add('on');
+    if(wl) wl.classList.add('on');
     handleJackpot(sym);
     return;
   }
@@ -346,6 +359,7 @@ function evaluate(res) {
 // ═══════════════════════════════════════════════════════
 function handleJackpot(sym) {
   const wt = document.getElementById('winText');
+  if(!wt) return;
 
   if(sym === '♦️'){
     S.points = Math.max(0, S.points - 10);
@@ -361,7 +375,7 @@ function handleJackpot(sym) {
     wt.className   = 'wt wt-g';
     wt.textContent = '⚡⚡⚡ FREE RESPIN!';
     updateHUD(); save();
-    setTimeout(() => doSpin(autoOn), 1100);
+    // Don't auto-respin - let user decide
     return;
   }
 
@@ -371,7 +385,7 @@ function handleJackpot(sym) {
     launchParticles('💎', true, 18);
     showDJackpot('💎 DIAMOND JACKPOT! +3 💎');
     vibrate([100,50,100,50,200,50,200]);
-    wt.style.display = 'none';
+    if(wt) wt.style.display = 'none';
     return;
   }
 
@@ -390,13 +404,19 @@ function handleJackpot(sym) {
 // ═══════════════════════════════════════════════════════
 function launchParticles(emoji, big, count) {
   const tEl = document.getElementById('gameAv') || document.getElementById('mainAv');
-  if(!tEl) return;
+  if(!tEl) {
+    console.warn('Avatar element not found for particles');
+    return;
+  }
   const tr = tEl.getBoundingClientRect();
   const tx = tr.left + tr.width  / 2;
   const ty = tr.top  + tr.height / 2;
 
   const src = document.getElementById('reelsWrap');
-  if(!src) return;
+  if(!src) {
+    console.warn('ReelsWrap element not found for particles');
+    return;
+  }
   const sr = src.getBoundingClientRect();
   const sx = sr.left + sr.width  / 2;
   const sy = sr.top  + sr.height / 2;
@@ -426,14 +446,18 @@ function launchParticles(emoji, big, count) {
 // ═══════════════════════════════════════════════════════
 function showDJackpot(msg){
   const ov = document.getElementById('djovl');
-  document.getElementById('djTxt').textContent = msg;
+  if(!ov) return;
+  const txt = document.getElementById('djTxt');
+  if(txt) txt.textContent = msg;
   ov.classList.add('on');
   mkConfetti(ov, 55);
   setTimeout(() => { ov.classList.remove('on'); clrConf(ov); }, 4200);
 }
 function showJK(msg){
   const ov = document.getElementById('jkovl');
-  document.getElementById('jkbig').textContent = msg;
+  if(!ov) return;
+  const big = document.getElementById('jkbig');
+  if(big) big.textContent = msg;
   ov.classList.add('on');
   mkConfetti(ov, 38);
   setTimeout(() => { ov.classList.remove('on'); clrConf(ov); }, 2800);
@@ -457,8 +481,10 @@ function clrConf(p){ p.querySelectorAll('.confetti').forEach(c=>c.remove()); }
 function toggleAuto(){
   autoOn = !autoOn;
   const ab = document.getElementById('autoBadge');
-  ab.textContent = 'AUTO\n' + (autoOn ? 'ON' : 'OFF');
-  ab.className   = 'autobadge' + (autoOn ? ' on' : '');
+  if(ab) {
+    ab.textContent = 'AUTO\n' + (autoOn ? 'ON' : 'OFF');
+    ab.className   = 'autobadge' + (autoOn ? 'on' : '');
+  }
   toast(autoOn ? '⚡ Auto-spin ON' : '⏹ Auto-spin OFF', 1200);
   if(autoOn && !isSpinning) doSpin(true);
   if(!autoOn && autoTimer){ clearTimeout(autoTimer); autoTimer = null; }
@@ -467,7 +493,10 @@ function stopAuto(){
   autoOn = false;
   if(autoTimer){ clearTimeout(autoTimer); autoTimer = null; }
   const ab = document.getElementById('autoBadge');
-  if(ab){ ab.textContent = 'AUTO\nOFF'; ab.className = 'autobadge'; }
+  if(ab) {
+    ab.textContent = 'AUTO\nOFF';
+    ab.className = 'autobadge';
+  }
 }
 
 // ═══════════════════════════════════════════════════════
@@ -492,8 +521,14 @@ function updateHUD(){
 // ═══════════════════════════════════════════════════════
 //  SCREENS
 // ═══════════════════════════════════════════════════════
-function showS(id){ const e=document.getElementById(id); e.style.display='flex'; e.classList.add('active'); }
-function hideS(id){ const e=document.getElementById(id); e.style.display='none'; e.classList.remove('active'); }
+function showS(id){ 
+  const e=document.getElementById(id); 
+  if(e) { e.style.display='flex'; e.classList.add('active'); } 
+}
+function hideS(id){ 
+  const e=document.getElementById(id); 
+  if(e) { e.style.display='none'; e.classList.remove('active'); } 
+}
 
 function goGame(){
   if(S.tickets <= 0){ toast('Hey, Diamondnair 💎 tickets has finished!', 2500); openOv('shop'); return; }
@@ -507,10 +542,15 @@ function backMain(){ stopAuto(); hideS('gameSc'); showS('mainSc'); updateHUD(); 
 const OV_RENDERERS = { lb:renderLB, shop:renderShop, airdrop:renderAirdrop,
                        notices:renderNotices, settings:renderSettings, prof:renderProf };
 function openOv(id){
-  document.getElementById(id).classList.add('active');
+  const ov = document.getElementById(id);
+  if(!ov) return;
+  ov.classList.add('active');
   if(OV_RENDERERS[id]) OV_RENDERERS[id]();
 }
-function closeOv(id){ document.getElementById(id).classList.remove('active'); }
+function closeOv(id){ 
+  const ov = document.getElementById(id); 
+  if(ov) ov.classList.remove('active'); 
+}
 
 // ─── LEADERBOARD ───
 const LB_NPC = [
@@ -537,7 +577,8 @@ function renderLB(){
          '<div class="lbpts">🎖️ '+p.pts.toLocaleString()+'</div></div>' +
          '<div class="lbprize">'+(PRIZES[i]||'1🎟️')+'</div></div>';
   });
-  document.getElementById('lbBody').innerHTML = h;
+  const body = document.getElementById('lbBody');
+  if(body) body.innerHTML = h;
   updLBT();
 }
 function updLBT(){
@@ -558,6 +599,8 @@ const SHOP = [
   {nm:'Premium Pass',ico:'👑',desc:'Rare symbols + 30 tickets',usd:'$20.00',stars:'⭐1000',t:30,prem:true}
 ];
 function renderShop(){
+  const body = document.getElementById('shopBody');
+  if(!body) return;
   let h = '<div class="shopsmoke"></div>';
   SHOP.forEach((it,i)=>{
     h += '<div class="shcard'+(it.prem?' prem':'')+'">' +
@@ -566,9 +609,9 @@ function renderShop(){
          '<div style="text-align:right">' +
          '<div class="shusd">'+it.usd+'</div>' +
          '<div class="shstar">'+it.stars+'</div>' +
-         '<button class="buybtn" onclick="buyIt('+i+')">BUY</button></div></div>';
+         '<button class="buybtn" data-index="'+i+'">BUY</button></div></div>';
   });
-  document.getElementById('shopBody').innerHTML = h;
+  body.innerHTML = h;
 }
 function buyIt(i){
   const it = SHOP[i];
@@ -586,10 +629,10 @@ function buyIt(i){
 // ─── AIRDROP ───
 function renderAirdrop(){
   const wh = S.wallet
-    ? '<div class="wtxt ok">✅ Wallet Connected<br><small style="color:#666">'+
+    ? '<div class="wtxt ok">✅ Wallet Connected<br><small style="color:#666">' +
       S.walletAddr.slice(0,8)+'...'+S.walletAddr.slice(-4)+'</small></div>'
-    : '<div class="wtxt">Sorry Diamondnair, wallet not connected.</div>'+
-      '<button class="connbtn" onclick="connW()">🔗 Connect Telegram Wallet</button>';
+    : '<div class="wtxt">Sorry Diamondnair, wallet not connected.</div>' +
+      '<button class="connbtn" data-action="connW">🔗 Connect Telegram Wallet</button>';
 
   const now = Date.now();
   const tasks = [
@@ -617,9 +660,10 @@ function renderAirdrop(){
           '<div class="trw">+$'+t.rw+'</div>'+cd+'</div>' +
           '<button class="tdo'+(t.done?' done':'')+'" ' +
           (dis?'disabled style="opacity:.5"':'') +
-          ' onclick="claimT(\''+t.id+'\','+t.rw+')">'+btn+'</button></div>';
+          ' data-action="claimT" data-id="'+t.id+'" data-rw="'+t.rw+'">'+btn+'</button></div>';
   });
-  document.getElementById('airdropBody').innerHTML =
+  const body = document.getElementById('airdropBody');
+  if(body) body.innerHTML =
     '<div style="font-size:2.4rem;text-align:center;margin-bottom:.5rem">📦</div>' +
     '<div class="wbox">'+wh+'</div>'+th;
 }
@@ -672,16 +716,18 @@ function renderNotices(){
   const rem = S.claimTs ? Math.max(0, S.claimTs+4*36e5-now) : 0;
   const hh=Math.floor(rem/36e5), mm=Math.floor((rem%36e5)/6e4), ss=Math.floor((rem%6e4)/1e3);
   const rdy = rem===0;
+  const body = document.getElementById('noticesBody');
+  if(!body) return;
   let h = '<div class="claimbox">' +
           '<div class="claimtitle">🎟️ FREE TICKETS — EVERY 4 HOURS</div>' +
           '<div class="claimtv" id="clTmr">'+(rdy?'Ready!':p2(hh)+':'+p2(mm)+':'+p2(ss))+'</div>' +
-          '<button class="claimdo" id="clBtn" onclick="claimTix()" ' +
+          '<button class="claimdo" id="clBtn" data-action="claimTix" ' +
           (rdy?'':'disabled style="opacity:.5"')+'>CLAIM 5 🎟️</button></div>';
   NOTICES.forEach(n=>{
     h += '<div class="nitem"><span style="font-size:1.05rem;flex-shrink:0">'+n.ico+'</span>' +
          '<div><div class="nbody">'+n.msg+'</div><div class="ntime">'+n.time+'</div></div></div>';
   });
-  document.getElementById('noticesBody').innerHTML = h;
+  body.innerHTML = h;
 }
 function claimTix(){
   const now=Date.now();
@@ -693,27 +739,33 @@ function claimTix(){
 
 // ─── SETTINGS ───
 function renderSettings(){
-  document.getElementById('settingsBody').innerHTML =
-    '<div class="setprow" onclick="closeOv(\'settings\');openOv(\'prof\')">' +
+  const body = document.getElementById('settingsBody');
+  if(!body) return;
+  body.innerHTML =
+    '<div class="setprow" data-action="closeSettingsProf">' +
     '<div class="setav">'+(S.user.av||'🧑')+'</div>' +
     '<div><div class="setuname">'+S.user.name+'</div>' +
     '<div class="setuid">'+S.user.username+'</div></div>' +
     '<span style="margin-left:auto;color:#888">→</span></div>' +
     '<div class="setseclbl">Audio & Haptics</div>' +
     '<div class="setrow"><span class="setrownm">🔊 Sound Effects</span>' +
-    '<div class="tog'+(S.settings.sound?' on':'')+' " onclick="togS(\'sound\',this)"></div></div>' +
+    '<div class="tog'+(S.settings.sound?' on':'')+'" data-action="togS" data-key="sound"></div></div>' +
     '<div class="setrow"><span class="setrownm">📳 Vibration</span>' +
-    '<div class="tog'+(S.settings.vibrate?' on':'')+' " onclick="togS(\'vibrate\',this)"></div></div>' +
+    '<div class="tog'+(S.settings.vibrate?' on':'')+'" data-action="togS" data-key="vibrate"></div></div>' +
     '<div class="setrow"><span class="setrownm">🔔 Notifications</span>' +
-    '<div class="tog'+(S.settings.notif?' on':'')+' " onclick="togS(\'notif\',this)"></div></div>' +
+    '<div class="tog'+(S.settings.notif?' on':'')+'" data-action="togS" data-key="notif"></div></div>' +
     '<div class="setseclbl" style="margin-top:.65rem">Community</div>' +
-    '<div class="setrow" onclick="window.open(\'https://t.me/boydonzbot\',\'_blank\')" style="cursor:pointer">' +
+    '<div class="setrow" onclick="window.open('https://t.me/boydonzbot','_blank')" style="cursor:pointer">' +
     '<span class="setrownm">✈️ Telegram Channel</span><span style="color:#888">→</span></div>' +
     '<div class="setseclbl" style="margin-top:.65rem">Account</div>' +
-    '<button class="dangerbtn" onclick="delAcc()">🗑️ Delete Account</button>' +
+    '<button class="dangerbtn" data-action="delAcc">🗑️ Delete Account</button>' +
     '<div class="setver">Diamond Slotbox v1.0.0 © 2025 Diamondnair</div>';
 }
-function togS(k,el){ S.settings[k]=!S.settings[k]; el.classList.toggle('on',S.settings[k]); save(); }
+function togS(k,el){
+  S.settings[k]=!S.settings[k];
+  el.classList.toggle('on',S.settings[k]);
+  save();
+}
 function delAcc(){
   if(confirm('Delete your Diamondnair account? This cannot be undone.')){
     localStorage.removeItem(SK); location.reload();
@@ -723,11 +775,14 @@ function delAcc(){
 // ─── PROFILE ───
 const AVS = ['🧑','👨','👩','🧔','👱','🧑‍💻','🎭','🤖','👾','🦸'];
 function renderProf(){
-  document.getElementById('profBody').innerHTML =
+  const body = document.getElementById('profBody');
+  if(!body) return;
+  body.innerHTML =
     '<div class="profhdr">' +
     '<div class="profpic">'+(S.user.av||'🧑')+
-    '<button class="profeditbtn" onclick="cycAv()">✏️</button></div>' +
+    '<button class="profeditbtn" data-action="cycAv">✏️</button></div>' +
     '<div class="profname">'+S.user.name+'</div>' +
+    free
     '<div class="profun">'+S.user.username+'</div></div>' +
     '<div class="profgrid">' +
     '<div class="profstat"><div class="profsv">'+S.tickets+'</div><div class="profsl">🎟️ Tickets</div></div>' +
@@ -739,7 +794,7 @@ function renderProf(){
     '<div style="font-size:.56rem;color:#888;letter-spacing:1px;margin-bottom:.28rem">WALLET</div>' +
     (S.wallet ?
       '<div style="color:#00FF88;font-size:.76rem">✅ '+S.walletAddr.slice(0,10)+'...'+S.walletAddr.slice(-4)+'</div>' :
-      '<button onclick="closeOv(\'prof\');openOv(\'airdrop\')" style="background:rgba(0,136,204,.18);border:1px solid #0088cc;color:#fff;border-radius:7px;padding:.38rem .75rem;font-size:.7rem;cursor:pointer">🔗 Connect Wallet</button>')  +
+      '<button data-action="connW" style="background:rgba(0,136,204,.18);border:1px solid #0088cc;color:#fff;border-radius:7px;padding:.38rem .75rem;font-size:.7rem;cursor:pointer">🔗 Connect Wallet</button>')  +
     '</div>' +
     '<div style="margin-top:.55rem;background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.12);border-radius:9px;padding:.55rem;">' +
     '<div style="font-size:.56rem;color:#888;margin-bottom:2px">STATUS</div>' +
@@ -753,21 +808,23 @@ function cycAv(){
 
 // ═══════════════════════════════════════════════════════
 //  TOAST & VIBRATE & UTILS
-// ═══════════════════════════════════════════════════════
+// ═════════════════ repository
+// ═════════════════════
 let _tt;
 function toast(msg, dur=2000){
   const el=document.getElementById('toast');
+  if(!el) return;
   el.textContent=msg; el.classList.add('show');
   clearTimeout(_tt); _tt=setTimeout(()=>el.classList.remove('show'),dur);
 }
 function vibrate(p=[50]){ if(S.settings.vibrate && navigator.vibrate) navigator.vibrate(p); }
 function p2(n){ return String(n).padStart(2,'0'); }
 
-// ═══════════════════════════════════════════════════════
-//  NETWORK CHECK
-// ═══════════════════════════════════════════════════════
+// ═══════ prof
+// ═════════════════════
 function initNet(){
   const el=document.getElementById('netErr');
+  if(!el) return;
   function chk(){
     if(!navigator.onLine){ el.style.display='flex'; }
     else { if(el.style.display==='flex'){ el.style.display='none'; toast('Connection restored, Diamondnair! 🌐',2000); } }
@@ -778,30 +835,10 @@ function initNet(){
 }
 
 // ═══════════════════════════════════════════════════════
-//  TIMERS
+//  EVENT LISTENERS
 // ═══════════════════════════════════════════════════════
-function startTimers(){
-  setInterval(()=>{
-    updLBT();
-    const ct = document.getElementById('clTmr');
-    if(ct){
-      const now=Date.now(), rem=S.claimTs?Math.max(0,S.claimTs+4*36e5-now):0;
-      if(rem===0){
-        ct.textContent='Ready!'; ct.style.color='#00FF88';
-        const cb=document.getElementById('clBtn');
-        if(cb){ cb.disabled=false; cb.style.opacity='1'; }
-      } else {
-        const hh=Math.floor(rem/36e5),mm=Math.floor((rem%36e5)/6e4),ss=Math.floor((rem%6e4)/1e3);
-        ct.textContent=p2(hh)+':'+p2(mm)+':'+p2(ss); ct.style.color='';
-      }
-    }
-  }, 1000);
-}
 
-// ═══════════════════════════════════════════════════════
-//  BOOT
-// ═══════════════════════════════════════════════════════
-window.addEventListener('load', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
   load();
   initNet();
 
@@ -822,7 +859,8 @@ window.addEventListener('load', ()=>{
   // Loading bar animation
   const steps=['Loading textures...','Building reels...','Connecting account...','Almost ready...','Welcome, Diamondnair! 💎'];
   let si=0;
-  const bar=document.getElementById('lbar'), stat=document.getElementById('lstat');
+  const bar=document.getElementById('lbar');
+  const stat=document.getElementById('lstat');
   const iv=setInterval(()=>{
     si++;
     if(bar)  bar.style.width = (si/steps.length*100) + '%';
@@ -837,6 +875,7 @@ window.addEventListener('load', ()=>{
   }, 2900);
 });
 
+// Auth button
 document.getElementById('tgBtn').addEventListener('click', ()=>{
   S.loggedIn = true;
   if(!S.user.uid){
@@ -847,6 +886,194 @@ document.getElementById('tgBtn').addEventListener('click', ()=>{
   toast('Welcome, Diamondnair! 💎 Tap the machine to play!', 3000);
 });
 
+// Game navigation
+document.getElementById('backBtn').addEventListener('click', backMain);
+
+// Spin buttons
+const spinBtn = document.getElementById('spinBtn');
+if(spinBtn) spinBtn.addEventListener('click', handleSpin);
+const spinBtn2 = document.getElementById('spinBtn2');
+if(spinBtn2) spinBtn2.addEventListener('click', handleSpin);
+
+// Auto toggle
+const autoBadge = document.getElementById('autoBadge');
+if(autoBadge) autoBadge.addEventListener('click', toggleAuto);
+
+// Overlay close buttons
+const ovCloseBtns = document.querySelectorAll('[data-ov]');
+if(ovCloseBtns.length > 0) {
+  ovCloseBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ov = btn.getAttribute('data-ov');
+      closeOv(ov);
+    });
+  });
+}
+
+// Bottom navigation
+const navBtns = document.querySelectorAll('.navbtn');
+if(navBtns.length > 0) {
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const screen = btn.getAttribute('data-screen');
+      if(screen) {
+        closeOv(screen);
+        if(screen === 'lb') renderLB();
+        if(screen === 'shop') renderShop();
+        if(screen === 'airdrop') renderAirdrop();
+        if(screen === 'notices') renderNotices();
+        if(screen === 'settings') renderSettings();
+        if(screen === 'prof') renderProf();
+      }
+    });
+  });
+}
+
+// Shop buy buttons
+const buyBtns = document.querySelectorAll('.buybtn');
+if(buyBtns.length > 0) {
+Particles
+  buyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const index = parseInt(btn.getAttribute('data-index'));
+      buyIt(index);
+    });
+  });
+}
+
+// Airdrop task buttons
+const taskBtns = document.querySelectorAll('[data-action="claimT"]');
+if(taskBtns.length > 0) {
+  taskBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      const rw = parseInt(btn.getAttribute('data-rw'));
+      claimT(id, rw);
+    });
+  });
+
+// Airdrop connect wallet button
+const connBtns = document.querySelectorAll('[data-action="connW"]');
+if(connBtns.length > 0) {
+  connBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      connW();
+    });
+  });
+}
+
+// Airdrop claim tickets button
+const claimTixBtn = document.getElementById('clBtn');
+if(claimTixBtn) {
+  claimTixBtn.addEventListener('index', () => {
+    claimTix();
+  });
+}
+
+// Settings toggles
+const togBtns = document.querySelectorAll('[data-action="togS"]');
+if(togBtns.length > 0) {
+  togBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.getAttribute('data-key');
+      togS(key, btn);
+    });
+  });
+
+// Settings close/prof
+const closeSettingsBtns = document.querySelectorAll('[data-action="closeSettingsProf"]');
+if(closeSettingsBtns.length > 0) {
+  closeSettingsBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      closeOv('settings');
+      openOv('prof');
+    });
+  });
+}
+
+// Profile cycle avatar
+const cycAvBtns = document.querySelectorAll('[data-action="cycAv"]');
+if(cycAvBtns.length > 0) {
+  cycAvBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      cycAv();
+    });
+  });
+}
+
+// Delete account
+const delAccBtns = document.querySelectorAll('[data-action="delAcc"]');
+if(delAccBtns.length > 0) {
+  delAccBtns.forEach(btn => {
+    your
+    btn.addEventListener('click', () => {
+      delAcc();
+    });
+  });
+}
+
+// Network retry
+const netRetryBtn = document.querySelector('.netretry');
+if(netRetryBtn) {
+  netRetryBtn.addEventListener('click', () => {
+    location.reload();
+  });
+}
+
 // Prevent accidental zoom/scroll on mobile
 document.addEventListener('touchmove', e=>e.preventDefault(), {passive:false});
 document.addEventListener('gesturestart', e=>e.preventDefault());
+
+// ═══════════════════════════════════════════════════════
+//  STARTUP
+// ═══════════════════════════════════════════════════════
+function startTimers(){
+  const ct = document.getElementById('clTmr');
+  const cb = document.getElementById('clBtn');
+  if(!ct || !cb) return;
+  const now = Date.now();
+  const rem = S.claimTs ? Math.max(0, S.claimTs+4*36e5-now) : 0;
+  const hh=Math.floor(rem/36e5), mm=Math.floor((rem%36e5)/6e4), ss=Math.floor((rem%6e4)/1e3);
+  const rdy = rem===0;
+  ct.textContent = rdy ? 'Ready!' : p2(hh)+':'+p2(mm)+':'+p2(ss);
+  cb.disabled = !rdy;
+}
+
+// ═══════════════════════════════════════════════════════
+//  INITIALIZATION
+// ═══════════════════════════════════════════════════════
+if(!load()){
+  S.tickets = 10;
+  S.diamonds = 0;
+  S.balance = 0.0;
+  S.points = 0;
+  S.settings = { sound:true, vibrate:true, notif:true };
+  S.tasks = { wallet:false, channel:false, share:false };
+  S.storyTs = 0;
+  S.reactTs = 0;
+  S.claimTs = 0;
+  S.lbStart = Date.now();
+  S.isPremium = false;
+  save();
+}
+
+// Start the game
+initReels();
+updateHUD();
+startTimers();
+
+// Show main screen after loading
+setTimeout(() => {
+  hideS('ldSc');
+  if(S.loggedIn){
+    showS('mainSc');
+    updateHUD();
+  } else {
+    showS('authSc');
+    toast('Welcome, Diamondnair! 💎 Tap the machine to play!', 3000);
+  }
+}, 2900);
+
+// ═══════════════════════════════════════════════════════
+//  END OF SCRIPT
+// ═══════════════════0

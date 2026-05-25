@@ -8,5 +8,127 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Loading Screen -->
+  <div id="ldSc" class="screen active">
+    <div class="lbar"></div>
+    <div class="lstat">Loading textures...</div>
+  </div>
+
+  <!-- Auth Screen -->
+  <div id="authSc" class="screen">
+    <div class="authbox">
+      <div class="authlogo">💎</div>
+      <div class="authtitle">Diamond Slotbox</div>
+      <div class="authsubtitle">Welcome, Diamondnair!</div>
+      <button id="tgBtn" class="authbtn">Play Now</button>
+    </div>
+  </div>
+
+  <!-- Main Screen -->
+  <div id="mainSc" class="screen">
+    <div class="mainheader">
+      <div class="mhleft">
+        <div class="mhname">Diamondnair</div>
+        <div class="mhuid">@diamondnaire</div>
+      </div>
+      <div class="mhright">
+        <div class="mht">🎟️ <span id="m_t">10</span></div>
+        <div class="mhd">💎 <span id="m_d">0</span></div>
+        <div class="mhb">💲 <span id="m_b">0.00</span></div>
+        <div class="mhp">🎖️ <span id="m_p">0</span></div>
+      </div>
+    </div>
+
+    <!-- Game Area -->
+    <div id="gameSc" class="screen">
+      <div class="gamearea">
+        <div class="gameheader">
+          <div class="ghtitle">🎰 DIAMOND SLOTBOX</div>
+          <div class="ghsubtitle">Match 3 symbols to win!</div>
+        </div>
+
+        <!-- Reels -->
+        <div class="reelswrap" id="reelsWrap">
+          <div class="reel" id="track0">
+            <div class="rcell">💎</div>
+            <div class="rcell">🏆</div>
+            <div class="rcell">👑</div>
+          </div>
+          <div class="reel" id="track1">
+            <div class="rcell">⚡</div>
+            <div class="rcell">💵</div>
+            <div class="rcell">🍿</div>
+          </div>
+          <div class="reel" id="track2">
+            <div class="rcell">💰</div>
+            <div class="rcell">💸</div>
+            <div class="rcell">🏅</div>
+          </div>
+        </div>
+
+        <!-- Win Line -->
+        <div id="wline" class="wline"></div>
+        <div id="winText" class="wt">No match — spin again!</div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button id="spinBtn" class="spinbtn">▶ SPIN</button>
+          <button id="autoBadge" class="autobadge">AUTO\nOFF</button>
+        </div>
+      </div>
+
+      <!-- Avatar -->
+      <div class="gameavatar" id="gameAv">🧑</div>
+    </div>
+
+    <!-- Overlays -->
+    <div id="lb" class="ov">
+      <div class="ovheader">🏆 Leaderboard</div>
+      <div class="ovbody" id="lbBody"></div>
+      <div class="ovclose" onclick="closeOv('lb')">✕</div>
+    </div>
+
+    <div id="shop" class="ov">
+      <div class="ovheader">🛒 Shop</div>
+      <div class="ovbody" id="shopBody"></div>
+      <div class="ovclose" onclick="closeOv('shop')">✕</div>
+    </div>
+
+    <div id="airdrop" class="ov">
+      <div class="ovheader">🎁 Airdrop</div>
+      <div class="ovbody" id="airdropBody"></div>
+      <div class="ovclose" onclick="closeOv('airdrop')">✕</div>
+    </div>
+
+    <div id="notices" class="ov">
+      <div class="ovheader">📢 Notices</div>
+      <div class="ovbody" id="noticesBody"></div>
+      <div class="ovclose" onclick="closeOv('notices')">✕</div>
+    </div>
+
+    <div id="settings" class="ov">
+      <div class="ovheader">⚙️ Settings</div>
+      <div class="ovbody" id="settingsBody"></div>
+      <div class="ovclose" onclick="closeOv('settings')">✕</div>
+    </div>
+
+    <div id="prof" class="ov">
+      <div class="ovheader">👤 Profile</div>
+      <div class="ovbody" id="profBody"></div>
+      <div class="ovclose" onclick="closeOv('prof')">✕</div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Network Error -->
+  <div id="netErr" class="neterr">
+    <div class="neterricon">🌐</div>
+    <div class="neterrtext">No connection</div>
+    <button class="netretry" onclick="location.reload()">Retry</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-</html>
+</html>", "encoding": "utf-8
