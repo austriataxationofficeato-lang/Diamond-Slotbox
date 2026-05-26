@@ -1,1 +1,1 @@
-railway_server
+simple_server
