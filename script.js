@@ -11,7 +11,8 @@ const API_BASE_URL = window.location.hostname === 'localhost'
 // TELEGRAM BOT CONFIGURATION
 // ═══════════════════════════════════════════════════════
 
-const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN_HERE'8963441849:AAG-2jXIKg1tal1dRXRATTSLM2Pef3buNio;
+const TELEGRAM_BOT_TOKEN = '8963441849:AAG-2jXIKg1tal1dRXRATTSLM2Pef3buNio
+';
 
 // ═══════════════════════════════════════════════════════
 // TELEGRAM WEB APP INTEGRATION
