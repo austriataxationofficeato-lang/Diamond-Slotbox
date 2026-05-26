@@ -1,1 +1,1 @@
-simple_server
+correct_server
