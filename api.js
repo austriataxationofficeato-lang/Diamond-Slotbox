@@ -5,7 +5,7 @@
 
 const API_BASE_URL = window.location.hostname === 'localhost' 
   ? 'http://localhost:3000'
-  : 'https://your-production-backend.com'; // Update with your production URL
+  : 'https://diamond-slotbox-production.up.railway.app';
 
 // ═══════════════════════════════════════════════════════
 // TELEGRAM WEB APP INTEGRATION
