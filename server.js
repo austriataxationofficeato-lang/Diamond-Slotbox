@@ -7,14 +7,6 @@ const apiRouter = require('./routes/api');
 
 // ... your other middleware and routes
 
-// Add this for health check (very important)
-app.get('/', (req, res) => {
-    res.json({ 
-        success: true, 
-        message: 'Diamond Slotbox Backend is Running ✅',
-        version: '1.0'
-    });
-});
 
 // Add these at the top level (after express setup)
 app.get('/', (req, res) => {
