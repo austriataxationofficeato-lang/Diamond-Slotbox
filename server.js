@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8080;
 const CONFIG = {
     TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || '8963441849:AAG-2jXIKg1tal1dRXRATTSLM2Pef3buNio',
     TON_API_URL: 'https://toncenter.com/api/v2',
-    ADMIN_IDS: ['123456789'] // Add your admin Telegram IDs here
+    ADMIN_IDS: ['8302852788'] // Add your admin Telegram IDs here
 };
 
 // Enable CORS
