@@ -1,1 +1,195 @@
-Ly8g4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQKLy8gRElBTU9ORCBTTE9UQk9YIEFQSSBDTEVOVAovLyDimaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkKLy8gQ2xlYW4gbW9kdWxhciBKYXZhU2NyaXB0IGZvciBiYWNrZW5kIGNvbW11bmljYXRpb24KLy8g4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWQKQ29uc3QgQVBJID0gewoJLy8gQmFzZSBVUkwgKHNldCBieSBiYWNrZW5kKQoJYmFzZVVybDogJycsIC8vIFNldCB0byB5b3VyIGJhY2tlbmQgVVJMLCBlLmcuICdodHRwczovL215YXBwLmhlcm9rdWFwcC5jb20nCgoJLy8gSGVscGVyIGZvciBBUEkgY2FsbHMKCWFzeW5jIHJlcXVlc3QoZW5kcG9pbnQsIG9wdGlvbnMgPSB7fSkgewoJCWNvbnN0IHVybCA9IHRoaXMuYmFzZVVybCArIGVuZHBvaW50OwoJCWNvbnN0IGNvbmZpZyA9IHsKCQkJaGVhZGVyczogewoJCQkJCSdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicKCQkJCX0sCgkJCS4uLm9wdGlvbnMKCQl9OwoKCWlmIChvcHRpb25zLmJvZHkgJiYgdHlwZW9mIG9wdGlvbnMuYm9keSA9PT0gJ29iamVjdCcpIHsKCQkJY29uZmlnLmJvZHkgPSBKU09OLnN0cmluZ2lmeShvcHRpb25zLmJvZHkpOwoJCX0CgoJdHJ5IHsKCQljb25zdCByZXNwb25zZSA9IGF3YWl0IGZldGNoKHVybCwgY29uZmlnKTsKCQljb25zdCBkYXRhID0gYXdhaXQgcmVzcG9uc2UuanNvbigpOwoKCWlmICghZGF0YS5zdWNjZXNzKSB7CgkJCXRocm93IG5ldyBFcnJvcihkYXRhLmVycm9yIHx8ICdBUEkgZXJyb3InKTsKCQl9CgoJCXJldHVybiBkYXRhOwoJfSBjYXRjaCAoZXJyb3IpIHsKCQljb25zb2xlLmVycm9yKCdBUEIgRXJyb3I6JywgZXJyb3IpOwoJCXRocm93IGVycm9yOwoJfQoJfSwKCgkvLyBBdXRoIC0gUmVnaXN0ZXIvTG9naW4gd2l0aCBUZWxlZ3JhbQphc3luYyByZWdpc3Rlcihpbml0RGF0YSkgewoJCXJldHVybiB0aGlzLnJlcXVlc3QoJy9hcGkvYXV0aC9yZWdpc3RlcicsIHsKCQkJbWV0aG9kOiAnUE9TVCcsCgkJCWJvZHk6IHsgaW5pdERhdGEgfQoJCSB9KTsKCX0sCgoJLy8gR2V0IHBsYXllciBwcm9maWxlCmFzeW5jIGdldFBsYXllcih1aWQpIHsKCQlyZXR1cm4gdGhpcy5yZXF1ZXN0KGAvL2FwaS9wbGF5ZXIvJHt1aWR9YCk7Cgl9LAoKCS8vIFNwaW4gKFNlcnZlci1zaWRlIFJORykKYXN5bmMgc3Bpbih1aWQsIHRpY2tldHNTcGVudCkgewoJCXJldHVybiB0aGlzLnJlcXVlc3QoJy9hcGkvZ2FtZS9zcGluJywgewoJCQltZXRob2Q6ICdQT1NUJywKCQkJYm9keTogeyB1aWQsIHRpY2tldHNTcGVudCB9CgkJfSk7Cgl9LAoKCS8vIEdldCBsZWFkZXJib2FyZAphc3luYyBnZXRMZWFkZXJib2FyZCgpIHsKCQlyZXR1cm4gdGhpcy5yZXF1ZXN0KCcvYXBpL2xlYWRlcmJvYXJkJyk7Cgl9LAoKCS8vIFRPTiAtIEdldCB3YWxsZXQgYWRkcmVzcwphc3luYyBnZXRXYWxsZXRBZGRyZXNzKHVpZCkgewoJCXJldHVybiB0aGlzLnJlcXVlc3QoYC9hcGkvdG9uL3dhbGxldC8ke3VpZH1gKTsKCX0sCgoJLy8gVE9OIC0gRGVwb3NpdCAobW9jaykKYXN5bmMgZGVwb3NpdCh1aWQsIGFtb3VudCkgewoJCXJldHVybiB0aGlzLnJlcXVlc3QoJy9hcGkvdG9uL2RlcG9zaXQnLCB7CgkJCW1ldGhvZDogJ1BPU1QnLAoJCQlib2R5OiB7IHVpZCwgYW1vdW50IH0KCQl9KTsKCX0sCgoJLy8gQW50aS1DaGVhdDogVmVyaWZ5IHNwaW4KYXN5bmMgdmVyaWZ5U3Bpbih1aWQpIHsKCQlyZXR1cm4gdGhpcy5yZXF1ZXN0KGAvL2FwaS92ZXJpZnkvc3Bpbi8ke3VpZH1gKTsKCX0KfTsKCi8vIOKZoOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkCi8vICBHQU1FIFNUQVRFCi8vIOKZoOSkqOSkqOSkqOSkqOSkqOSkqOSkqOSkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkKQ29uc3QgR2FtZSA9IHsKCXN0YXRlOiB7CgkJbG9nZ2VkSW46IGZhbHNlLAoJCXVzZXI6IG51bGwsCgkJdGlja2V0czogMTAsCgkJcG9pbnRzOiAwLAoJCWJhbGFuY2U6IDAsCgkJaXNQcmVtaXVtOiBmYWxzZQoJfSwKCgkvLyBJbml0aWFsaXplIGdhbWUgd2l0aCBUZWxlZ3JhbSB1c2VyCWFzeW5jIGluaXQoKSB7CgkJaWYgKHdpbmRvdy5UZWxlZ3JhbSAmJiBUZWxlZ3JhbS5XZWJBcHApIHsKCQkJVGVsZWdycmFtLldlYkFwcC5yZWFkeSgpOwoJCQlUZWxlZ3JhbS5XZWJBcHAuZXhwYW5kKCk7CgoJCQljb25zdCBpbml0RGF0YSA9IFRlbGVncmFtLldlYkFwcC5pbml0RGF0YTsKCQkJY29uc3QgdXNlciA9IFRlbGVncmFtLldlYkFwcC5pbml0RGF0dW5TYfZ5LXVzZXI7CgoJCWlmIChpbml0RGF0YSAmJiB1c2VyKSB7CgkJCQl0cnkgewoJCQkJCUNvbnN0IHJlc3VsdCA9IGF3YWl0IEFQSS5yZWdpc3Rlcihpbml0RGF0YSk7CgoJCQkJCVRoaXMuc3RhdGUubG9nZ2VkSW4gPSB0cnVlOwoJCQkJCVRoaXMuc3RhdGUudXNlciA9IHsKCQkJCQkJaWQ6IHVzZXIuaWQsCgkJCQkJCW5hbWU6IHVzZXIuZmlyc3RfbmFtZSB8fCAnUGxheWVyJywKCQkJCQkJdXNlcm5hbWU6IHVzZXIudXNlcm5hbWUgfHwgYEB1c2VyJHt1c2VyLmlkfWAsCgkJCQkJCW9wZW5BbmFseXRpY3M6IGZhbHNlCgkJCQkJfTsKCQkJCQl0aGlzLnN0YXRlLnRpY2tldHMgPSByZXN1bHQucGxheWVyLnRpY2tldHM7CgkJCQkJdGhpcy5zdGF0ZS5wb2ludHMgPSByZXN1bHQucGxheWVyLnBvaW50czsKCQkJCQl0aGlzLnN0YXRlLmJhbGFuY2UgPSByZXN1bHQucGxheWVyLmJhbGFuY2U7CgkJCQkJdGhpcy5zdGF0ZS5pc1ByZW1pdW0gPSByZXN1bHQucGxheWVyLmlzUHJlbWl1bTsKCgkJCQkJdGhpcy51cGRhdGVIRUQ7CgkJCQkJcmV0dXJuIHRydWU7CgkJCQl9IGNhdGNoIChlcnJvcikgewoJCQkJCWNvbnNvbGUuZXJyb3IoJ0xvZ2luIGZhaWxlZDonLCBlcnJvcik7CgkJCQkJcmV0dXJuIGZhbHNlOwoJCQl9CgkJfQoJCX0KCglyZXR1cm4gZmFsc2U7Cgl9LAoKCS8vIFBlcmZvcm0gc3BpbiAoY2FsbHMgc2VydmVyKQphc3luYyBkb1NwaW4odGlja2V0c1NwZW50ID0gMSkgewoJCWlmICghdGhpcy5zdGF0ZS5sb2dnZWRJbiB8fCAhdGhpcy5zdGF0ZS51c2VyKSB7CgkJCXRvYXN0KCdQbGVhc2UgbG9naW4gZmlyc3QhJywgMjAwMCk7CgkJCXJldHVybiBudWxsOwoJCX0KCglpZiAodGhpcy5zdGF0ZS50aWNrZXRzIDwgdGlja2V0c1NwZW50KSB7CgkJCXRvYXN0KCdOb3QgZW5vdWggdGlja2V0cyEnLCAyMDAwKTsKCQkJcmV0dXJuIG51bGw7CgkJfQoKCXRyeSB7CgkJCWNvbnN0IHJlc3VsdCA9IGF3YWl0IEFQSS5zcGluKHRoaXMuc3RhdGUudXNlci5pZCwgdGlja2V0c1NwZW50KTsKCgkJCS8vIFVwZGF0ZSBsb2NhbCBzdGF0ZQp0aGlzLnN0YXRlLnRpY2tldHMgPSByZXN1bHQudGlja2V0czsKCQkJdGhpcy5zdGF0ZS5wb2ludHMgPSByZXN1bHQucG9pbnRzOwoKCQkJdGhpcy51cGRhdGVIRUQ7CgoJCQlyZXR1cm4gewoJCQkJcmVlbHM6IHJlc3VsdC5yZXN1bHQsCgkJCQlwYXlvdXQ6IHJlc3VsdC5wYXlvdXQKCQkJfTsKCQl9IGNhdGNoIChlcnJvcikgewoJCQl0b2FzdCgnU3BpbiBmYWlsZWQ6ICcgKyBlcnJvci5tZXNzYWdlLCAyMDAwKTsKCQkJcmV0dXJuIG51bGw7CgkJfQoJfSwKCgkvLyBHZXQgbGVhZGVyYm9hcmQgZnJvbSBzZXJ2ZXIKYXN5bmMgZ2V0TGVhZGVyYm9hZCgpIHsKCQl0cnkgewoJCQljb25zdCByZXN1bHQgPSBhd2FpdCBBUEkuZ2V0TGVhZGVyYm9hZCgpOwoJCQlyZXR1cm4gcmVzdWx0LmxlYWRlcmJvYXJkOwoJCX0gY2F0Y2ggKGVycm9yKSB7CgkJCWNvbnNvbGUuZXJyb3IoJ0xlYWRlcmJvYXJkIGVycm9yOicsIGVycm9yKTsKCQkJcmV0dXJuIFtdOwoJCX0KCX0sCgoJLy8gVXBkYXRlIEhVRCBkaXNwbGF5CXVwZGF0ZUhFRCgpIHsKCQljb25zdCB0aWNrZXRzRWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGlja2V0cycpOwoJCWNvbnN0IHBvaW50c0VsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BvaW50cycpOwoJCWNvbnN0IGJhbGFuY2VFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdiYWxhbmNlJyk7CgoJCWlmICh0aWNrZXRzRWwpIHRpY2tldHNFbC50ZXh0Q29udGVudCA9IHRoaXMuc3RhdGUudGlja2V0czsKCWlmIChwb2ludHNFbCkgcG9pbnRzRWwudGV4dENvbnRlbnQgPSB0aGlzLnN0YXRlLnBvaW50cy50b0xvY2FsZVN0cmluZygpOwoJaWYgKGJhbGFuY2VFbCkgYmFsYW5jZUVsLnRleHRDb250ZW50ID0gdGhpcy5zdGF0ZS5iYWxhbmNlLnRvRml4ZWQoMik7Cgl9Cn07CgovLyDimaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkKLy8gRVhQT1JUIEZPUiBVU0UgSU4gTUFJTkUgQ09ERQovLyDimaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkpaDkKd2luZG93LkFQSSA9IEFQSTsKd2luZG93LkdhbWUgPSBHYW1lOw
+// =============================================
+// DIAMOND SLOTBOX API CLIENT
+// Backend: https://diamond-slotbox-production.up.railway.app
+// =============================================
+
+const API = {
+    // Base URL - Your Railway Backend
+    baseUrl: 'https://diamond-slotbox-production.up.railway.app',
+
+    // Helper for API requests
+    async request(endpoint, options = {}) {
+        const url = this.baseUrl + endpoint;
+        
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            ...options
+        };
+
+        // Stringify body if it's an object
+        if (options.body && typeof options.body === 'object') {
+            config.body = JSON.stringify(options.body);
+        }
+
+        try {
+            const response = await fetch(url, config);
+            const data = await response.json();
+
+            if (!data.success) {
+                throw new Error(data.error || 'API Error');
+            }
+
+            return data;
+        } catch (error) {
+            console.error('API Error:', error);
+            throw error;
+        }
+    },
+
+    // Auth - Register/Login with Telegram
+    async register(initData) {
+        return this.request('/api/auth/register', {
+            method: 'POST',
+            body: { initData }
+        });
+    },
+
+    // Get player profile
+    async getPlayer(uid) {
+        return this.request(`/api/player/${uid}`);
+    },
+
+    // Spin (Server-side RNG)
+    async spin(uid, ticketsSpent = 1) {
+        return this.request('/api/game/spin', {
+            method: 'POST',
+            body: { uid, ticketsSpent }
+        });
+    },
+
+    // Get Leaderboard
+    async getLeaderboard() {
+        return this.request('/api/leaderboard');
+    },
+
+    // TON Wallet
+    async getWalletAddress(uid) {
+        return this.request(`/api/ton/wallet/${uid}`);
+    },
+
+    // TON Deposit
+    async deposit(uid, amount) {
+        return this.request('/api/ton/deposit', {
+            method: 'POST',
+            body: { uid, amount }
+        });
+    },
+
+    // Anti-Cheat: Verify Spin
+    async verifySpin(uid) {
+        return this.request(`/api/verify/spin/${uid}`);
+    }
+};
+
+// =============================================
+// GAME STATE
+// =============================================
+
+const Game = {
+    state: {
+        loggedIn: false,
+        user: null,
+        tickets: 10,
+        points: 0,
+        balance: 0,
+        isPremium: false
+    },
+
+    // Initialize with Telegram WebApp
+    async init() {
+        if (window.Telegram?.WebApp) {
+            const tg = Telegram.WebApp;
+            tg.ready();
+            tg.expand();
+
+            const initData = tg.initData;
+            const user = tg.initDataUnsafe?.user;
+
+            if (initData && user) {
+                try {
+                    const result = await API.register(initData);
+
+                    this.state.loggedIn = true;
+                    this.state.user = {
+                        id: user.id,
+                        name: user.first_name || 'Player',
+                        username: user.username || `@user${user.id}`,
+                    };
+
+                    // Sync data from server
+                    this.state.tickets = result.player?.tickets ?? 10;
+                    this.state.points = result.player?.points ?? 0;
+                    this.state.balance = result.player?.balance ?? 0;
+                    this.state.isPremium = result.player?.isPremium ?? false;
+
+                    this.updateHUD();
+                    console.log('✅ Game initialized successfully');
+                    return true;
+                } catch (error) {
+                    console.error('Login failed:', error);
+                    return false;
+                }
+            }
+        }
+        console.warn('Telegram WebApp not detected');
+        return false;
+    },
+
+    // Perform Spin
+    async doSpin(ticketsSpent = 1) {
+        if (!this.state.loggedIn || !this.state.user) {
+            toast('Please login first!', 2000);
+            return null;
+        }
+
+        if (this.state.tickets < ticketsSpent) {
+            toast('Not enough tickets!', 2000);
+            return null;
+        }
+
+        try {
+            const result = await API.spin(this.state.user.id, ticketsSpent);
+
+            this.state.tickets = result.tickets;
+            this.state.points = result.points;
+
+            this.updateHUD();
+
+            return {
+                reels: result.reels,
+                payout: result.payout
+            };
+        } catch (error) {
+            toast('Spin failed: ' + (error.message || 'Unknown error'), 2000);
+            return null;
+        }
+    },
+
+    // Get Leaderboard
+    async getLeaderboard() {
+        try {
+            const result = await API.getLeaderboard();
+            return result.leaderboard || [];
+        } catch (error) {
+            console.error('Leaderboard error:', error);
+            return [];
+        }
+    },
+
+    // Update HUD
+    updateHUD() {
+        const ticketsEl = document.getElementById('tickets');
+        const pointsEl = document.getElementById('points');
+        const balanceEl = document.getElementById('balance');
+
+        if (ticketsEl) ticketsEl.textContent = this.state.tickets;
+        if (pointsEl) pointsEl.textContent = this.state.points.toLocaleString();
+        if (balanceEl) balanceEl.textContent = this.state.balance.toFixed(2);
+    }
+};
+
+// Make available globally
+window.API = API;
+window.Game = Game;
