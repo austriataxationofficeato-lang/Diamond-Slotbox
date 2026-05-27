@@ -1,3 +1,30 @@
+
+// At the top of your main server file (app.js or server.js)
+const express = require('express');
+const app = express();
+
+// ... your other middleware and routes
+
+// Add this for health check (very important)
+app.get('/', (req, res) => {
+    res.json({ 
+        success: true, 
+        message: 'Diamond Slotbox Backend is Running ✅',
+        version: '1.0'
+    });
+});
+
+// Make sure your API routes are mounted correctly
+app.use('/api', yourApiRouter);   // ← Important
+
+// Catch-all for undefined routes
+app.use('*', (req, res) => {
+    res.status(404).json({ 
+        success: false, 
+        error: 'Route not found' 
+    });
+});
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
