@@ -45,8 +45,7 @@ app.get('/debug-routes', (req, res) => {
 });
 
 // Make sure your API routes are mounted correctly
-app.use('/api', yourApiRouter);   // ← Important
-
+app.use('/api' , apiRouter);
 // Catch-all for undefined routes
 app.use('*', (req, res) => {
     res.status(404).json({ 
