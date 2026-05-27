@@ -2,6 +2,8 @@
 // At the top of your main server file (app.js or server.js)
 const express = require('express');
 const app = express();
+const apiRouter = require('./routes/api');
+
 
 // ... your other middleware and routes
 
