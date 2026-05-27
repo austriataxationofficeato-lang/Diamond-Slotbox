@@ -14,6 +14,34 @@ app.get('/', (req, res) => {
     });
 });
 
+// Add these at the top level (after express setup)
+app.get('/', (req, res) => {
+    res.json({
+        success: true,
+        message: "Diamond Slotbox Backend ✅",
+        availableRoutes: [
+            "/api/auth/register",
+            "/api/game/spin",
+            "/api/leaderboard",
+            // add more as you have
+        ]
+    });
+});
+
+// List all routes for debugging (helpful during development)
+app.get('/debug-routes', (req, res) => {
+    const routes = [];
+    app._router.stack.forEach((middleware) => {
+        if (middleware.route) {
+            routes.push({
+                path: middleware.route.path,
+                methods: Object.keys(middleware.route.methods)
+            });
+        }
+    });
+    res.json({ routes });
+});
+
 // Make sure your API routes are mounted correctly
 app.use('/api', yourApiRouter);   // ← Important
 
