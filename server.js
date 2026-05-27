@@ -8,19 +8,6 @@ const apiRouter = require('./routes/api');
 // ... your other middleware and routes
 
 
-// Add these at the top level (after express setup)
-app.get('/', (req, res) => {
-    res.json({
-        success: true,
-        message: "Diamond Slotbox Backend ✅",
-        availableRoutes: [
-            "/api/auth/register",
-            "/api/game/spin",
-            "/api/leaderboard",
-            // add more as you have
-        ]
-    });
-});
 
 // List all routes for debugging (helpful during development)
 app.get('/debug-routes', (req, res) => {
